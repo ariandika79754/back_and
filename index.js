@@ -12,7 +12,7 @@ console.log(a);
 
 const pi = 3.80 //  => variable dengan tipe data desimal (float)
 const area = 10 //  => variable dengan tipe data bilangan bulat (integer)
-let b =" andika leva" // => variable dengan tipe data string
+let b = "andika leva" // => variable dengan tipe data string
 console.log(typeof area); // ini mengecek tipe data variable
 console.log(typeof b); // ini mengecek tipe data variable
 
@@ -40,6 +40,9 @@ console.log(typeof profil);
 
 
 // array memiliki index sebagai urutan atau lokasi tersebut dan array di mulai dari nol
-const simpleArray = [40, 50, 60, 70 ]
+const simpleArray = [40, 50, 60, 70 ] // yang ada di dalam kurung siku itu adalah elemen 
 console.log(simpleArray [1]); // akses array menggunkan index 
+
+simpleArray[1] = 55; // merubaj isi elemen dari array index ke 1 
+console.log(simpleArray [1]);
 console.log(typeof simpleArray);
