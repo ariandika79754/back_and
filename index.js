@@ -253,23 +253,43 @@ console.log(greetArrow("Ari"));
 
 /**
  * Class itu di definisikan dengan keyword klass
- * kelas juva memiliki contructor, dimana constructor akan selalu di akses diawal ketika
+ * kelas juga memiliki contructor, dimana constructor akan selalu di akses diawal ketika
  * kita melakukan pembuatan object baru dari class dengan keyword new Car("Mitsubishi", "Pajero Sport", 2023);
  * pada di dalam contructor kita menggunakan this untuk mendeklarasikan sebuah property, didalam object. Mirip dengan
  * tipe data object lainnya class juga punya property
  */
 class Car {
     constructor(name, brand, year) {
-        this.name = name;
+        this._name = name;
         this.brand = brand;
         this.year = year;
     }
-    information(){
-        return `${this.name} have brand from ${this.brand} and build in ${this.year}`;
-    }
-    setName(name){
-        this.name = name
 
+    information() {
+        return `${this._name} have brand from ${this.brand} and build in ${this.year}`;
+    }
+
+    // This is a setter for changing a property value
+    setName(name) {
+        this._name = name;
+    }
+
+    // This is a getter for retrieving a property value
+    getName() {
+        return this._name;
+    }
+
+    // This is an example of using getter with keywords get
+    get name() {
+        return this._name;
+    }
+
+    set name(value) {
+        if (value !== "") {
+            this._name = value;
+        }else{
+            console.log("failed");
+        }
     }
 }
 
@@ -277,6 +297,38 @@ const car = new Car("Mitsubihi", "Pajero Sport", 2023);
 console.log(car.information());
 car.setName("Daihatsu");
 console.log(car.information());
+console.log(car.name);
+
+car.name = "Toyota";
+console.log(car.information());
+console.log(car.getName());
 
 
 
+
+class Animal {
+    constructor(name) {
+        this.name = name
+    }
+    speake(){
+        console.log(`${this.name} makes a sound.`);
+
+    }
+}
+/**
+ * Cat Merupakan sebuah keturunan dari kelas animal yang mewarisi semua yang ada di dalam class animal,
+ * baik itu properti maupun method
+ */
+class Cat extends Animal {
+   constructor(name, color){
+    super(name);
+    this.color = color
+   }
+   speake(){
+   super.speake();
+   console.log(`${this.name} Meowss.`);
+}
+}
+
+const cat = new Cat ("Switi");
+cat.speake();
