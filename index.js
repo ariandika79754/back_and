@@ -190,3 +190,93 @@ const isLoggedin = true;
  }else {
     console.log("Baju Kotor");
  }
+
+/** ini merupakan dari sebuah function sederhana, delcariton function di tulis dengan keyword 
+ * function dengan nama function
+ * jika function tidak memilik keyword nilai return dia merupak void function
+ * yang berarti function tersebut tidak mengembalikan nilai apapun kita di gunakan
+ * age = 22 merupakan initialitation parameter dengan nilai awal atau default value,
+ * ketika kita melakukan pemanggilan function tanpa parameter maka secara default,
+ * age itu bernilai 23 dan jika kita memasukan nilai parameter ke 2 nilainya age akan
+ * sesuai dengan parameter ke dua yang dikirim dari pemanggilan
+ * @returns string
+ */
+ function greet(name, age=22) {
+    // Pengguna String literal atau (``) ketika ingin menggunakan variable/parameter harus dengan ${}
+    return `Hell0, ${name}. My age is ${age} yers `;
+ }
+
+const greeting = greet("Ari!!", 20); // => jika function memiliki keyword return di dalamnya bisa menggunakan variable
+// ari dan 20 adalah argumen
+console.log(greeting);
+
+
+/**
+ * (*) perkalian
+ * (/) pembagian
+ * (-) Pengurangan
+ * (+) Penjumlahan
+ */
+console.log(greet("Ari!!")); // => jika function bisa di gunakan tanpa variable
+
+function add(a,b) {
+    return a * b;
+    
+}
+console.log(add(10,10)); // output selalu a + b dalam kasus ini argumen akan di jumlahkan
+
+function fizzBuzz(number) {
+    if (number % 2 == 0) {
+        return "Fizz"
+    }
+    if (number % 3 == 0) {
+        return "Buzz"
+    }
+    if (number % 5 == 0) {
+        return "FizzBuzz"
+    }
+    
+    return "Failed"
+}
+console.log(fizzBuzz(2)); // => Outputnya Fizz
+console.log(fizzBuzz(3)); // => outputnya Buzz
+console.log(fizzBuzz(5)); // => Ouputnya FizzBuzz
+console.log(fizzBuzz(7)); // => outputnya failed
+
+const greetAnon = function(name){
+    return `Hello, ${name} from anonymous function`;
+}
+console.log(greetAnon("Ari"));
+
+const greetArrow = (name) => `Hello, ${name} from Arrow funtion`
+console.log(greetArrow("Ari"));
+
+/**
+ * Class itu di definisikan dengan keyword klass
+ * kelas juva memiliki contructor, dimana constructor akan selalu di akses diawal ketika
+ * kita melakukan pembuatan object baru dari class dengan keyword new Car("Mitsubishi", "Pajero Sport", 2023);
+ * pada di dalam contructor kita menggunakan this untuk mendeklarasikan sebuah property, didalam object. Mirip dengan
+ * tipe data object lainnya class juga punya property
+ */
+class Car {
+    constructor(name, brand, year) {
+        this.name = name;
+        this.brand = brand;
+        this.year = year;
+    }
+    information(){
+        return `${this.name} have brand from ${this.brand} and build in ${this.year}`;
+    }
+    setName(name){
+        this.name = name
+
+    }
+}
+
+const car = new Car("Mitsubihi", "Pajero Sport", 2023);
+console.log(car.information());
+car.setName("Daihatsu");
+console.log(car.information());
+
+
+
