@@ -6,10 +6,11 @@ USE sample_database;
 
 -- Membuat tabel baru
 CREATE TABLE students (
-    id INT AUTO_INCREMENT PRIMARY KEY, -- Kolom ID sebagai primary key yang auto increment
-    nama VARCHAR(255) NOT NULL,        -- Kolom nama dengan tipe data VARCHAR
-    nilai VARCHAR(255) NOT NULL,       -- Kolom email dengan tipe data VARCHAR
-    umur INT NOT NULL                  -- Kolom umur dengan tipe data INT
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    nama VARCHAR(255) NOT NULL,        
+    nilai VARCHAR(255) NOT NULL,
+    class_id INT not null,      
+    constraint Foreign key (class_id) references class (id) on Delete cascade 
 );
 
 CREATE TABLE class (
@@ -58,3 +59,7 @@ INNER JOIN
 ON 
     class.teacher_id = teacher.id;
 
+-- cara menambahkan kolom foreign key
+alter tabel students
+add column class_id int not  null,
+add constraint Foreign key (class_id) references class (id) on Delete cascade
