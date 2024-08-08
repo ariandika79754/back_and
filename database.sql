@@ -63,3 +63,32 @@ ON
 alter tabel students
 add column class_id int not  null,
 add constraint Foreign key (class_id) references class (id) on Delete cascade
+
+-- many to many perlu yang namanya pivot table atau perantara untuk menghubungkannya
+CREATE TABLE students_has_teacher(
+    students_id int not null,
+    teacher_id int not null,
+    constraint Foreign key (teacher_id) references teacher (id) on Delete cascade
+    constraint Foreign key (students_id) references students (id) on Delete cascade
+);
+
+-- cara menampikan data guru yang memiliki kelas apa dan siswa yang mana aja yang di ajar guru tersebut
+SELECT 
+    students.nama AS nama_siswa,
+    teacher.nama AS nama_guru,
+    class.nama AS nama_kelas
+FROM 
+    teacher
+INNER JOIN 
+    students_has_teacher 
+ON 
+    teacher.id = students_has_teacher.teacher_id
+INNER JOIN 
+    students 
+ON 
+    students_has_teacher.students_id = students.id
+INNER JOIN 
+    class 
+ON 
+    teacher.id = class.teacher_id
+
