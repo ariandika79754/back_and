@@ -299,7 +299,7 @@ car.setName("Daihatsu");
 console.log(car.information());
 console.log(car.name);
 
-car.name = "Toyota";
+car.name = "Toyota"; // menggunakan setter untuk merubah data dari properti yang sudah ada di class
 console.log(car.information());
 console.log(car.getName());
 
@@ -332,3 +332,20 @@ class Cat extends Animal {
 
 const cat = new Cat ("Switi");
 cat.speake();
+
+class mathUtil {
+    static add(a,b){
+        return a + b;
+    }
+    static multiply(a,b){
+        return a * b;
+    }
+}
+console.log(mathUtil.add(5,6)); // kalau static tidak perlu object baru
+console.log(mathUtil.multiply(5,6));
+
+/**
+ * naming convension class biasanya menggunakan pascalcase atau sebagai contoh "Yanto"
+ * naming convension variable biasanya menggunakan camelclass atau variabelName
+ * naming function variable biasanya menggunakan camelclass atau functionName
+ */
